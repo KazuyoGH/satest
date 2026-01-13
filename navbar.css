@@ -69,30 +69,24 @@ body { padding-top: 70px; }
 }
 
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block; /* Only shows on mobile */
-    }
-
-    .nav-links {
-        display: none; 
-        flex-direction: column;
-        position: absolute;
-        top: 100%; /* Sits directly under navbar */
-        left: 0;
-        width: 100%;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(20px);
-        padding: 30px 0;
-        gap: 25px;
-        border-bottom: 1px solid #eee;
-    }
-
-    .nav-links.active {
+    .navbar {
         display: flex;
+        justify-content: space-between;
+        gap: 15px;
+    }
+
+    .nav-logo {
+        flex: 1; /* Pushes other items to the right */
     }
 
     .nav-right {
-        order: 3;
+        order: 1; /* Moves WhatsApp button before the hamburger */
+    }
+
+    .menu-toggle {
+        display: block;
+        order: 2; /* Moves hamburger to the far right */
+        padding: 5px;
     }
 }
 
