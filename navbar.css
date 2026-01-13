@@ -55,6 +55,29 @@
     background: #444;
 }
 
-/* Add padding to body so content doesn't hide behind nav */
-
 body { padding-top: 70px; }
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide links by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 20px 0;
+        text-align: center;
+        gap: 20px;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+    }
+
+    .nav-links.active {
+        display: flex; /* Show menu when toggled */
+    }
+
+    .nav-whatsapp {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+}
