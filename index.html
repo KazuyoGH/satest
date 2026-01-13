@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+    <title>The Elegance Capsule - Full Collection</title>
+</head>
+
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const hero = document.querySelector('.hero-banner'); // Corrected class name
+            if (!sessionStorage.getItem('introPlayed')) {
+                hero.classList.add('entrance-anim');
+                sessionStorage.setItem('introPlayed', 'true');
+            } else {
+                hero.style.opacity = "1";
+                hero.style.transform = "none";
+            }
+        });
+    </script>
+    <nav class="navbar">
+        <div class="nav-logo">
+            <img src="assets/logo.svg" alt="Zanerobe Logo">
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="catalog.html">Catalog</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="nav-right">
+            <a href="https://wa.me/971545999978?text=Hello%20Sada%20Abaya,%20I'm%20here%20to%20inquire%20about%20"
+                target="_blank" class="nav-whatsapp">WhatsApp</a>
+        </div>
+    </nav>
+    <div class="hero-banner hidden-on-load">
+        <img src="assets/banner.jpg" class="banner-bg" alt="Collection Background">
+
+        <div class="banner-overlay">
+            <img src="assets/banneroverlay.png" class="overlay-img" alt="The Elegance Capsule">
+
+            <a href="#catalog" class="explore-btn">EXPLORE THE CATALOG</a>
+        </div>
+    </div>
+    <div class="product-section">
+        <div class="section-title">OUR RECOMMENDATIONS</div>
+        <div id="home-product-grid" class="product-grid"></div>
+    </div>
+
+    <script>
+        const grid = document.getElementById('home-product-grid');
+        const waLink = "https://wa.me/971545999978?text=Hello%20Sada%20Abaya,%20I'm%20here%20to%20inquire%20about%20";
+
+        for (let i = 1; i <= 4; i++) {
+            const name = i === 1 ? "Embroidered Abaya 01" : `Abaya ${i.toString().padStart(2, '0')}`;
+            grid.innerHTML += `
+            <div class="product-card">
+                <div class="image-box">
+                    <img src="assets/Abaya${i}.jpg" alt="${name}">
+                    <div class="tag">AVAILABLE</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">${name}</div>
+                    <a href="${waLink}" target="_blank" class="order-btn">Order on WhatsApp</a>
+                </div>
+            </div>`;
+        }
+    </script>
+
+    <div class="collection-cta">
+        <div class="cta-content">
+            <h2>SEE OUR FULL COLLECTION</h2>
+            <a href="catalog.html" class="explore-btn">VIEW CATALOG</a>
+        </div>
+    </div>
+
+    <footer class="site-footer" id="contact">
+        <div class="footer-column">
+            <h3>Customer Service</h3>
+            <p>+971 56 894 9944</p>
+            <p>Sat-Thur: 10am - 10pm</p>
+            <p>Fri: 2pm - 10pm</p>
+            <a href="https://www.instagram.com/sada.abayaa?igsh=MXdrN2E4YjViaGtuNQ==" target="_blank"
+                class="social-link">Instagram</a>
+        </div>
+        <div class="footer-column">
+            <h3>Our Location</h3>
+            <p>Al Hana Tower Mezzanine 1, Shop 113</p>
+            <iframe class="map-container"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.232537243916!2d55.2862!3d25.2458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f432579069d35%3A0x647617c06b2e352!2sAl%20Hana%20Center!5e0!3m2!1sen!2sae!4v1700000000000"
+                allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </footer>
+</body>
+
+</html>

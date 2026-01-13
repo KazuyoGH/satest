@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+    <title>Catalog </title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-logo"><img src="assets/logo.svg" alt="Logo"></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="catalog.html" class="active">Catalog</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="nav-right">
+            <a href="https://wa.me/971545999978?text=Hello%20Sada%20Abaya,%20I'm%20here%20to%20inquire%20about%20"
+                target="_blank" class="nav-whatsapp">WhatsApp</a>
+        </div>
+    </nav>
+
+    <div class="product-section">
+        <div class="section-title">FULL COLLECTION</div>
+        <div id="product-grid" class="product-grid">
+        </div>
+    </div>
+
+    <script>
+        const products = Array.from({ length: 15 }, (_, i) => ({
+            id: i + 1,
+            name: `Abaya ${String(i + 1).padStart(2, '0')}`,
+            image: `assets/Abaya${i + 1}.jpg`
+        }));
+
+        const grid = document.getElementById('product-grid');
+        const waBase = "https://wa.me/971545999978?text=Hello%20Sada%20Abaya,%20I'm%20here%20to%20inquire%20about%20";
+
+        grid.innerHTML = products.map(p => `
+        <div class="product-card">
+            <div class="image-box">
+                <img src="${p.image}" alt="${p.name}">
+                <div class="tag">AVAILABLE</div>
+            </div>
+            <div class="product-info">
+                <div class="product-name">${p.name}</div>
+                <a href="${waBase}${encodeURIComponent(p.name)}" target="_blank" class="order-btn">
+                    Order on WhatsApp
+                </a>
+            </div>
+        </div>
+    `).join('');
+    </script>
+    </div>
+
+    <footer class="site-footer" id="contact">
+        <div class="footer-column">
+            <h3>Customer Service</h3>
+            <p>+971 56 894 9944</p>
+            <p>Sat-Thur: 10am - 10pm</p>
+            <p>Fri: 2pm - 10pm</p>
+            <a href="https://www.instagram.com/sada.abayaa?igsh=MXdrN2E4YjViaGtuNQ==" target="_blank"
+                class="social-link">Instagram</a>
+        </div>
+        <div class="footer-column">
+            <h3>Our Location</h3>
+            <p>Al Hana Tower Mezzanine 1, Shop 113</p>
+            <iframe class="map-container"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.232537243916!2d55.2862!3d25.2458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f432579069d35%3A0x647617c06b2e352!2sAl%20Hana%20Center!5e0!3m2!1sen!2sae!4v1700000000000"
+                allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,213 @@
+body {
+    margin: 0;
+    font-family: "Times New Roman", serif;
+    background-color: #f9f9f9;
+    letter-spacing: -0.5px;
+}
+
+/* Banner Section */
+.hero-banner {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.banner-overlay {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.overlay-img {
+    max-width: 80%;
+    height: auto;
+    filter: drop-shadow(0 2px 10px rgba(0,0,0,0.3));
+    animation: fadeIn 1.5s ease-out forwards, float 4s ease-in-out infinite alternate;
+}
+
+/* Product Section */
+.product-section {
+    padding: 40px 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    width: 100%;
+}
+
+.product-card {
+    width: calc(25% - 30px);
+    min-width: 250px;
+    transition: transform 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transform: scale(1.03);
+}
+
+.image-box {
+    position: relative;
+    background-color: #e8e8e8;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.image-box img {
+    width: 100%;
+    aspect-ratio: 850 / 1280;
+    object-fit: cover;
+    display: block;
+}
+
+.tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    padding: 4px 10px;
+    font-size: 11px;
+    border-radius: 2px;
+}
+
+.product-info {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px 0;
+}
+
+.product-name {
+    font-size: 15px;
+    color: #1a1a1a;
+}
+
+.order-btn {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 13px;
+    padding: 10px;
+    border: 1px solid #1a1a1a;
+    transition: all 0.4s ease-in-out;
+}
+
+.order-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(5px);
+    letter-spacing: 0.5px;
+}
+
+/* Add this below your .overlay-img styles */
+.explore-btn {
+    padding: 12px 30px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    color: #1a1a1a;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: inline-block; /* Ensures padding and transform work correctly */
+}
+
+.explore-btn:hover {
+    background: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-15px); }
+}
+
+.collection-cta {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: url('assets/banner2.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.collection-cta::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+}
+
+.cta-content h2 {
+    font-size: 28px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+/* Initial state: hidden */
+.hidden-on-load { opacity: 0; transform: translateY(20px); }
+
+/* Animation state */
+.entrance-anim {
+    animation: fadeInUp 1.2s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+    .product-card { width: calc(33.33% - 30px); }
+}
+
+@media screen and (max-width: 720px) {
+    .product-card { width: calc(50% - 30px); }
+}

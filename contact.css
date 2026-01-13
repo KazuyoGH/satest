@@ -1,0 +1,36 @@
+.contact-hero {
+    height: 300px;
+    /* This adds a 50% dark overlay over the image */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('assets/contactbg.jpg') center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    letter-spacing: 5px;
+}
+
+.contact-grid {
+    display: flex;
+    gap: 30px;
+    padding: 60px 10%;
+    margin-top: -50px; /* Overlaps hero for a modern look */
+    z-index: 5;
+    position: relative;
+}
+
+.contact-card {
+    flex: 1;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.contact-card h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
